@@ -1,0 +1,3 @@
+[build]
+  command = "yarn run build"
+  publish = "out"  # Or '.next' based on your deployment strategy

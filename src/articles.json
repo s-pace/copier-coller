@@ -1,0 +1,32 @@
+{
+  "articles": [
+    {
+      "id": "tutorial1",
+      "linkLabel": "Premier pas."
+    },
+    {
+      "id": "design",
+      "linkLabel": "Discover More About The Tech Behind Us."
+    },
+    {
+      "id": "meteo",
+      "linkLabel": "Learn More About 3D Printing in Extreme Conditions"
+    },
+    {
+      "id": "robotic_hand",
+      "linkLabel": "Impression 3D de main robotique"
+    },
+    {
+      "id": "history",
+      "linkLabel": "Histoire de l'Impression 3D"
+    },
+    {
+      "id": "space",
+      "linkLabel": "Espace et l'Impression 3D"
+    },
+    {
+      "id": "burger",
+      "linkLabel": "Les burgers Novameat imprimés à base de plante"
+    }
+  ]
+}

@@ -1,0 +1,1620 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./custom-markdown.css";
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:900i");
+
+@layer components {
+  .shadcn-select {
+    @apply border-primary text-primary hover:border-primary focus:outline-primary;
+  }
+
+  .shadcn-option {
+    @apply bg-primary text-white;
+    /* Ensure the text is readable */
+  }
+}
+
+@font-face {
+  font-family: "Audiowide";
+  src: url("https://fonts.gstatic.com/s/audiowide/v9/l7gdbjpo0cum0ckerWCtkQXP0Rs.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --primary-color: #ff7d00;
+  --primary-color-rgb: 255, 125, 0;
+  /* Primary orange color */
+  --secondary-color: #ff9933;
+  --secondary-color-rgb: 255, 153, 51;  /* RGB */
+  /* Secondary orange for buttons, etc. */
+  --text-color: #333;
+  /* Text color unchanged */
+  --text-color-fade: #33333;
+  /* Text color unchanged */
+  --border-color: #ccc;
+  /* Border color unchanged */
+  --background-color: #f9f9f9;
+  --bg: 119 136 153;
+  /* Background color unchanged */
+  --hover-button-color: #ffb366;
+  /* Lighter orange for hover */
+  --hover-active-color: #ff944d;
+  --active-button-color: #ffff00;
+  --disable-bg-color: #cccccc;
+  --app-background-color: #ff7d00;
+  --app-link-color: #ff944d;
+  /* Geekier Font Variables */
+  --font-heading: "Audiowide", sans-serif;
+  /* A retro, pixelated font inspired by 8-bit video games */
+  --font-body: "Roboto Mono", monospace;
+  /* A modern monospace font for body text */
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 28 100% 50%;
+    --card: 0 0% 96%;
+    --card-foreground: 28 20% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 28 100% 50%;
+    --primary: 28 100% 50%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 30 100% 60%;
+    --secondary-foreground: 28 80% 30%;
+    --muted: 30 20% 96%;
+    --muted-foreground: 28 40% 46%;
+    --accent: 30 20% 96%;
+    --accent-foreground: 28 80% 30%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 30 20% 91%;
+    --input: 30 20% 91%;
+    --ring: 28 100% 50%;
+    --radius: 0.3rem;
+    --chart-1: 28 100% 50%;
+    --chart-2: 30 100% 60%;
+    --chart-3: 28 80% 40%;
+    --chart-4: 35 100% 50%;
+    --chart-5: 25 100% 50%;
+    --radix-select-trigger-width: 1rem;
+    --shy: #ffb366;
+  }
+
+  .dark {
+    --background: 28 30% 10%;
+    --foreground: 210 20% 98%;
+    --card: 28 30% 8%;
+    --card-foreground: 210 20% 98%;
+    --popover: 28 30% 10%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 28 100% 50%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 30 100% 60%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 28 30% 20%;
+    --muted-foreground: 28 20% 65%;
+    --accent: 28 30% 20%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 28 30% 20%;
+    --input: 28 30% 20%;
+    --ring: 28 100% 50%;
+    --chart-1: 28 100% 60%;
+    --chart-2: 30 100% 70%;
+    --chart-3: 35 100% 60%;
+    --chart-4: 25 100% 60%;
+    --chart-5: 20 100% 60%;
+    --radix-select-trigger-width: 1rem;
+    --shy: #804000;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* In your CSS stylesheet */
+article {
+  width: 100%;
+  max-width: 70vw;
+  margin: auto;
+  padding: 0 1rem;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  article {
+    max-width: 95vw;
+    padding: 0 0.5rem;
+  }
+}
+
+.article-section {
+  margin-top: 1rem;
+}
+
+footer {
+
+  /* Style for the site-footer */
+  .site-footer {
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .social-link {
+    color: #000;
+    /* Couleur par défaut des icônes */
+    transition: color 0.3s ease-in-out;
+  }
+
+  .social-link:hover {
+    color: #800080;
+    /* Couleur violette au survol */
+  }
+
+  /* Style for the copyright text */
+  .copyright-text {
+    text-align: center;
+  }
+
+  /* Style for the flag icon */
+  .flag-icon {
+    margin: 0 5px;
+    color: var(--secondary-color);
+    /* Use secondary color for the flag icon */
+  }
+
+  /* Style for the heart icon */
+  .heart-icon {
+    margin: 0 5px;
+    color: var(--hover-button-color);
+    /* Use hover button color for the heart icon */
+  }
+
+  .text-center {
+    text-align: center;
+  }
+}
+
+/* Define the CSS animation */
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(2);
+  }
+}
+
+/* Center the baguette icon */
+.glowing-icon {
+  padding: 0 0.5rem;
+}
+
+.glowing-icon:hover {
+  animation: grow 1s ease-in-out infinite alternate;
+}
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  2%,
+  98% {
+    transform: scale(1.02);
+  }
+
+  4%,
+  96% {
+    transform: scale(1.03);
+  }
+
+  6%,
+  94% {
+    transform: scale(1.04);
+  }
+
+  8%,
+  92% {
+    transform: scale(1.05);
+  }
+
+  10%,
+  90% {
+    transform: scale(1.055);
+  }
+
+  12%,
+  88% {
+    transform: scale(1.06);
+  }
+
+  14%,
+  86% {
+    transform: scale(1.065);
+  }
+
+  16%,
+  84% {
+    transform: scale(1.07);
+  }
+
+  18%,
+  82% {
+    transform: scale(1.075);
+  }
+
+  20%,
+  80% {
+    transform: scale(1.08);
+  }
+
+  22%,
+  78% {
+    transform: scale(1.085);
+  }
+
+  24%,
+  76% {
+    transform: scale(1.09);
+  }
+
+  26%,
+  74% {
+    transform: scale(1.095);
+  }
+
+  28%,
+  72% {
+    transform: scale(1.1);
+  }
+
+  30%,
+  70% {
+    transform: scale(1.105);
+  }
+
+  32%,
+  68% {
+    transform: scale(1.11);
+  }
+
+  34%,
+  66% {
+    transform: scale(1.115);
+  }
+
+  36%,
+  64% {
+    transform: scale(1.12);
+  }
+
+  38%,
+  62% {
+    transform: scale(1.125);
+  }
+}
+
+header {
+  .glow-on-hover {
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    /* Add smooth transitions for both box-shadow and transform */
+  }
+
+  .glow-on-hover:hover {
+    animation: heartbeat 0.8s infinite;
+    /* Apply the animation to the element */
+    box-shadow: 0 0 30px var(--hover-button-color);
+    /* Immediate increased and larger heartbeat on hover */
+    transform: scale(1.1);
+    /* Scale up on hover */
+  }
+}
+
+/* Nav start */
+
+/* Navigation Bar Styles */
+.navbar {
+  padding-top: 1rem;
+  border-radius: 5px;
+  min-width: min(19vw, 200px);
+}
+
+/* Additional hover animation for other elements */
+.navbar-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+  /* Adjust the margin between lists */
+}
+
+.navbar-item {
+  margin: 10px 0;
+  padding: 10px 0;
+  transition: transform 1s ease-in-out;
+  /* Add hover animation */
+  border: 1px solid var(--border-color);
+}
+
+.navbar-link {
+  color: whitesmoke;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.6s ease-in-out;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.navbar-item:hover {
+  background-color: var(--hover-button-color);
+  transform: scale(1.03);
+  /* Add additional hover animation for links */
+  animation: bounce 1s infinite;
+  /* Add a bounce animation on hover */
+}
+
+.navbar-text {
+  font-style: italic;
+  transition: color 0.3s ease-in-out;
+  /* Add hover animation for text color change */
+}
+
+/* 3D Printer Animation */
+@keyframes printerAnimation {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(10deg) scale(1.1);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* Define the bounce animation */
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Define the heartbeat animation */
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  2%,
+  98% {
+    transform: scale(1.02);
+  }
+
+  4%,
+  96% {
+    transform: scale(1.03);
+  }
+
+  6%,
+  94% {
+    transform: scale(1.04);
+  }
+
+  8%,
+  92% {
+    transform: scale(1.05);
+  }
+
+  10%,
+  90% {
+    transform: scale(1.055);
+  }
+
+  12%,
+  88% {
+    transform: scale(1.06);
+  }
+
+  14%,
+  86% {
+    transform: scale(1.065);
+  }
+
+  16%,
+  84% {
+    transform: scale(1.07);
+  }
+
+  18%,
+  82% {
+    transform: scale(1.075);
+  }
+
+  20%,
+  80% {
+    transform: scale(1.08);
+  }
+
+  22%,
+  78% {
+    transform: scale(1.085);
+  }
+
+  24%,
+  76% {
+    transform: scale(1.09);
+  }
+
+  26%,
+  74% {
+    transform: scale(1.095);
+  }
+
+  28%,
+  72% {
+    transform: scale(1.1);
+  }
+
+  30%,
+  70% {
+    transform: scale(1.105);
+  }
+
+  32%,
+  68% {
+    transform: scale(1.11);
+  }
+
+  34%,
+  66% {
+    transform: scale(1.115);
+  }
+
+  36%,
+  64% {
+    transform: scale(1.12);
+  }
+
+  38%,
+  62% {
+    transform: scale(1.125);
+  }
+}
+
+/* Apply the heartbeat animation to an element on hover */
+.navbar-item:hover {
+  animation: heartbeat 1.2s infinite;
+  /* Apply the heartbeat animation on hover */
+}
+
+nav .navbar-link:active {
+  transform: scale(1.2);
+  /* Increase size when clicked */
+  background-color: var(--hover-button-color);
+  /* Change background color when clicked */
+  box-shadow: 0 0 10px var(--hover-button-color);
+  /* Add a shadow effect when clicked */
+  animation: none;
+  /* Remove heartbeat animation when clicked */
+  color: var(--active-button-color) !important;
+}
+
+.navbar-title {
+  font-size: 1.7rem;
+  /* Adjust the font size as needed */
+  margin: 0;
+  border-bottom: 2px solid var(--secondary-color);
+  /* Use secondary color for the border */
+}
+
+/* Nav over */
+
+/* Order form start */
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  /* Aligns children with space in between */
+}
+
+.form-group,
+.image-upload-section {
+  margin-bottom: 15px;
+}
+
+.full-width-input {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.full-width-input {
+  width: 98%;
+  /* Full width for standalone inputs */
+}
+
+.full-width-textarea {
+  width: 97%;
+  margin: auto;
+  height: 150px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin: 0px;
+  padding: 0.8rem;
+}
+
+.gift-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.autocomplete-container {
+  margin-bottom: 15px;
+}
+
+.money-input-container {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  font-family: Arial, sans-serif;
+  /* or any other font you prefer */
+}
+
+.money-input-label {
+  min-width: 60%;
+  margin-bottom: 10px;
+  color: var(--text-color-fade);
+  opacity: 50%;
+}
+
+.money-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 12px;
+  color: var(--primary-color);
+  /* Using the primary color variable */
+  font-size: 16px;
+}
+
+.money-input {
+  padding: 12px;
+  padding-left: 35px;
+  /* Adjusted space for currency symbol */
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.money-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(var(--primary-color), 0.6);
+  outline: none;
+}
+
+.happy-emoji {
+  min-height: 100px;
+  min-width: 100px;
+  text-align: center;
+  animation: bounce 1s infinite;
+  display: flex;
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+label {
+  user-select: none;
+  /* Prevents text selection */
+}
+
+.image-upload-section label {
+  padding-left: 1rem;
+}
+
+.image-upload-section {
+  transform: translateY(-2rem);
+}
+
+/* CSS for the tooltip */
+.happy-tooltip {
+  font-size: 0.5rem;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.happy-tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  /* Position the tooltip above the label */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.happy-tooltip:hover .happy-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* CSS for the tooltip */
+.happy-tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.happy-tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  /* Adjust the width as needed */
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  /* Position the tooltip above the label */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  /* Add a subtle box shadow */
+}
+
+.happy-tooltip:hover .happy-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+  /* Add a slight upward offset */
+}
+
+/*Order from stop*/
+
+/*Page from start*/
+.App {
+  margin: auto;
+  margin-bottom: 2rem;
+  box-shadow: 0 0rem 0 0.1rem #230066, 1.4rem 1.4rem 0 0 #230066;
+  background-color: var(--app-background-color);
+}
+
+.App-link {
+  color: var(--app-link-color);
+}
+
+@media screen and (max-width: 768px) {
+  .App-logo {
+    min-width: none;
+  }
+}
+
+/*Page from stop*/
+
+/*PrinterForm start*/
+form>label {
+  font-size: 1rem;
+}
+
+/*PrinterForm stop*/
+
+/*PrinterForm start*/
+button {
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/*PrinterForm stop*/
+
+/*UserForm start*/
+.field {
+  margin: 1rem;
+}
+
+.field label {
+  padding: 1rem;
+}
+
+/* Styles pour les champs de formulaire */
+.form-field {
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Styles pour les étiquettes des champs */
+.form-label {
+  font-size: 16px;
+  /* color: var(--text-color); */
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Styles pour le champ Autocomplete d'adresse */
+.address-autocomplete {
+  width: 80%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: white;
+}
+
+.form-image-container {
+  padding-left: 2rem;
+  padding-top: 0rem;
+  max-width: 50%;
+  flex: 1;
+  display: flex;
+}
+
+.form-info-container {
+  flex: 2;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  /* Sets the direction of flex items as a row */
+}
+
+form {
+  width: 100%;
+}
+
+/*UserForm stop*/
+
+body {
+  font-family: -apple-system, var(--font-body), "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgb(35, 0, 102);
+  min-height: 100vh;
+  background: rgba(var(--bg));
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-family: var(--font-heading);
+  /* Additional header styles as defined previously */
+}
+
+body header {
+  min-height: 70px;
+  padding: 0;
+  border: 0.2rem solid var(--primary-color);
+  background: linear-gradient(to bottom, #ffc123, var(--primary-color));
+}
+
+#root,
+body {
+  display: flex;
+  flex-direction: column;
+  /* height: 90vh; */
+}
+
+header h3 {
+  color: whitesmoke;
+  padding: 1rem 0rem;
+}
+
+article,
+main {
+  width: 100%;
+  border-radius: 0.5rem;
+  /* 8px */
+}
+
+.App,
+header,
+footer {
+  border-top-right-radius: 1rem;
+  /* 8px */
+  border-top-left-radius: 1rem;
+  /* 8px */
+}
+
+footer {
+  border-radius: 3rem;
+  border-spacing: 0.2rem;
+  color: whitesmoke;
+  padding: 0.5rem;
+}
+
+header {
+  background-color: #270636;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+nav a {
+  padding: 0;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-33 {
+  width: 33%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.navigator__item--separator {
+  padding: 0.2rem 0.3rem 1.2rem;
+  transform: translateY(2px);
+  border-right: 0.3rem solid var(--hover-active-color);
+  /* compensate border; */
+  margin-right: 0.3rem;
+}
+
+@media screen and (max-width: 768px) {
+  nav.header-nav-compact .navigator__item--separator {
+    display: none;
+  }
+}
+
+.md\:visible {
+  display: none;
+  /* Default to hidden */
+}
+
+@media (max-width: 780px) {
+  .md\:visible {
+    display: block;
+    /* Make visible on medium screens */
+  }
+}
+
+.navigator__item {
+  -webkit-transform: skewX(-10deg);
+  transform: skewX(-10deg);
+}
+
+.ant-breadcrumb-separator {
+  color: rgba(0, 0, 0, 0.45);
+  margin: 0 8px;
+}
+
+.breathing {
+  -webkit-animation-duration: 2.2s;
+  animation-duration: 2.2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: breathEff;
+  animation-name: breathEff;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background: #59c4d6;
+  color: #000;
+  display: inline-block;
+}
+
+/* In your CSS stylesheet */
+.article-list {
+  padding: 0;
+}
+
+.article-item {
+  /* Add a stronger box shadow to all <li> elements */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  /* Adjust the values for the shadow as needed */
+  transition: transform 0.2s, box-shadow 0.2s;
+  /* Add transition for transform and box-shadow */
+}
+
+.article-link {
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.article-link:hover {
+  background-color: var(--hover-button-color);
+  color: #fff;
+  /* Apply a transform to "raise" the button on hover */
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+  /* Add a stronger shadow on hover */
+}
+
+.article-list>li {
+  margin: 0.5rem 0;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.a-space-between {
+  align-items: space-between;
+}
+
+.jc-space-between {
+  justify-content: space-between;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+/* Rounded corners for an element */
+.rounded {
+  border-radius: 0.25rem;
+  /* Adjust the radius as needed */
+}
+
+/* Example with larger rounded corners */
+.rounded-lg {
+  border-radius: 0.5rem;
+  /* Adjust the radius as needed */
+}
+
+.rounded-xl {
+  border-radius: 3rem;
+  /* Adjust the radius as needed */
+}
+
+.rounded-bottom-xl {
+  border-bottom-left-radius: 3rem;
+  /* Adjust the radius as needed */
+  border-bottom-right-radius: 3rem;
+  /* Adjust the radius as needed */
+}
+
+/* Example with specific rounded corners (top-left and top-right) */
+.rounded-top {
+  border-top-left-radius: 0.25rem;
+  /* Adjust the radius as needed */
+  border-top-right-radius: 0.25rem;
+  /* Adjust the radius as needed */
+}
+
+.p-l-4 {
+  padding-left: 2rem;
+}
+
+.mxw-45 {
+  max-width: 45%;
+}
+
+.go-to {
+  padding: 0.3rem;
+  height: 100%;
+}
+
+.last {
+  margin-bottom: 0;
+  padding-bottom: 0.1rem;
+}
+
+.first {
+  margin-top: 0;
+  padding-top: 0rem;
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
+mt-2 {
+  margin-top: 0.3rem;
+}
+
+@media screen and (max-width: 800px) {
+  .navbar {
+    display: none;
+    /* Hide the navigation links by default on smaller screens */
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 800px) and (orientation: portrait) {
+
+  /* same as above */
+  .navbar {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+  }
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.mw-800 {
+  max-width: 800px;
+}
+
+/* main {
+  background-color: whitesmoke;
+  border: 0.2rem solid var(--primary-color);
+  border-bottom: none;
+} */
+
+/*Page stop*/
+
+/* Custom Font Sizes and Weights for Headers */
+h1 {
+  font-size: 2.25rem;
+  /* Equivalent to 36px if 1rem = 16px */
+  font-weight: 700;
+  /* Bold */
+}
+
+h2 {
+  font-size: 1.875rem;
+  /* Equivalent to 30px */
+  font-weight: 600;
+  /* Semi-bold */
+}
+
+h3 {
+  font-size: 1.5rem;
+  /* Equivalent to 24px */
+  font-weight: 500;
+  /* Medium */
+}
+
+h4 {
+  font-size: 1.5rem;
+  /* Equivalent to 24px */
+  font-weight: 300;
+  /* Medium */
+}
+
+article {
+  h1 {
+    font-size: 1.8em;
+    color: var(--header-color-primary);
+    padding-bottom: 0.7rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for depth */
+  }
+
+  h2 {
+    font-size: 1.5em;
+    color: var(--header-color-secondary);
+    padding-top: 0.2rem;
+    padding-bottom: 0.6rem;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for depth */
+  }
+
+  h3 {
+    font-size: 1.75em;
+    color: var(--header-color-primary);
+    padding-bottom: 0.9rem;
+  }
+
+  h4 {
+    font-size: 1.2em;
+    color: var(--header-color-secondary);
+    padding-top: 0.2rem;
+    padding-bottom: 0.6rem;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow for depth */
+  }
+
+  h5 {
+    font-size: 1.25em;
+    color: var(--text-color-fade);
+  }
+
+  h6 {
+    font-size: 1.1em;
+    text-decoration: overline;
+    /* Overline for a unique style */
+    font-weight: bold;
+  }
+}
+
+/* Override sm:block - Applies 'display: block' for screens at least 768px wide */
+@media (max-width: 768px) {
+  .sm-block {
+    display: block !important;
+  }
+
+  .sm-hidden {
+    display: none !important;
+  }
+
+  .sm-flex {
+    display: flex !important;
+  }
+
+  .sm-flex-col {
+    flex-direction: column !important;
+  }
+
+  .sm-grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+
+  .sm-grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Override md:flex - Applies 'display: flex' for screens at least 768px wide */
+@media (min-width: 768px) {
+  .md-flex {
+    display: flex !important;
+  }
+
+  .md-block {
+    display: block !important;
+  }
+
+  .md-hidden {
+    display: none !important;
+  }
+}
+
+textarea[name="discoverReason"] {
+  height: 3rem;
+}
+
+main>article {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .md\:max-w-full {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:w-full {
+    width: 100%;
+  }
+}
+
+.new-line {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.md\:flex.md\:justify-center {
+  /* Base styles for smaller screens */
+  display: flex;
+  justify-content: center;
+
+  /* Medium breakpoint and above */
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 0.8s infinite;
+  /* Apply the animation to the element */
+}
+
+.project-name {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  padding: .5rem 0rem;
+  margin: 0 0.2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.project-name.shadow-none {
+  text-shadow: none;
+  line-height: 0.625rem;
+}
+
+input.big-input[type="file"]::file-selector-button {
+  font-family: var(--font-heading);
+}
+
+.group:hover .group-hover\:flex {
+  display: flex !important;
+  opacity: 1;
+}
+
+.separator:not(:last-child) {
+  border-right: 0.3rem solid var(--hover-active-color);
+  /* Ensure you have this variable defined */
+  padding-right: 0.5rem;
+}
+
+.fire {
+  animation: burn 1.5s linear infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 15px gold, 0 0 20px gold,
+      0 0 25px gold;
+    background-color: rgba(255, 215, 0, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 20px gold, 0 0 30px gold, 0 0 40px gold, 0 0 50px gold,
+      0 0 60px gold;
+    background-color: rgba(255, 215, 0, 0.4);
+  }
+
+  100% {
+    box-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 15px gold, 0 0 20px gold,
+      0 0 25px gold;
+    background-color: rgba(255, 215, 0, 0.2);
+  }
+}
+
+.glowing {
+  animation: glow 2s infinite;
+}
+
+@keyframes burn {
+  from {
+    text-shadow: -0.1em 0 0.3em #fefcc9, 0.1em -0.1em 0.3em #feec85,
+      -0.2em -0.2em 0.4em #ffae34, 0.2em -0.3em 0.3em #ec760c,
+      -0.2em -0.4em 0.4em #cd4606, 0.1em -0.5em 0.7em #973716,
+      0.1em -0.7em 0.7em #451b0e;
+  }
+
+  45% {
+    text-shadow: 0.1em -0.2em 0.5em #fefcc9, 0.15em 0 0.4em #feec85,
+      -0.1em -0.25em 0.5em #ffae34, 0.15em -0.45em 0.5em #ec760c,
+      -0.1em -0.5em 0.6em #cd4606, 0 -0.8em 0.6em #973716,
+      0.2em -1em 0.8em #451b0e;
+  }
+
+  70% {
+    text-shadow: -0.1em 0 0.3em #fefcc9, 0.1em -0.1em 0.3em #feec85,
+      -0.2em -0.2em 0.6em #ffae34, 0.2em -0.3em 0.4em #ec760c,
+      -0.2em -0.4em 0.7em #cd4606, 0.1em -0.5em 0.7em #973716,
+      0.1em -0.7em 0.9em #451b0e;
+  }
+
+  to {
+    text-shadow: -0.1em -0.2em 0.6em #fefcc9, -0.15em 0 0.6em #feec85,
+      0.1em -0.25em 0.6em #ffae34, -0.15em -0.45em 0.5em #ec760c,
+      0.1em -0.5em 0.6em #cd4606, 0 -0.8em 0.6em #973716,
+      -0.2em -1em 0.8em #451b0e;
+  }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+/* Custom Disappear Animation */
+.disappear {
+  animation-name: disappear;
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+  animation-delay: 200ms;
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spin 2s linear infinite;
+}
+
+.card-shine-effect {
+  background: linear-gradient(45deg, #ffd700, #ffec8b);
+  background-size: 200% 200%;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  /* You can set this to any color or use an image as the background */
+  border-radius: 10px;
+  /* Optional: for rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Optional: for shadow effect */
+}
+
+.card-shine-effect::before {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg,
+      rgba(255, 215, 0, 0.1) 25%,
+      rgba(255, 223, 0, 0.5) 50%,
+      rgba(255, 215, 0, 0.1) 75%);
+  transform: rotate(0deg);
+  transform: rotate(0deg);
+  pointer-events: none;
+  animation: shine 2s infinite;
+  background-size: 200% 200%;
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: rotate(0deg) translateX(-200%);
+    background-position: 0% 50%;
+  }
+
+  100% {
+    transform: rotate(0deg) translateX(200%);
+    background-position: 100% 50%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.cta {
+  display: flex;
+  padding: 10px 45px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  color: white;
+  background: #7d21ff;
+  transition: 1s;
+  box-shadow: 6px 6px 0 black;
+  transform: skewX(-15deg);
+}
+
+.cta:focus {
+  outline: none;
+}
+
+.cta:hover {
+  transition: 0.5s;
+  box-shadow: 10px 10px 0 #ffc100;
+}
+
+.cta span:nth-child(2) {
+  transition: 0.5s;
+  margin-right: 0px;
+}
+
+.cta:hover span:nth-child(2) {
+  transition: 0.5s;
+  margin-right: 45px;
+}
+
+.index-article {
+  span {
+    transform: skewX(15deg);
+  }
+
+  span:nth-child(2) {
+    width: 20px;
+    margin-left: 30px;
+    position: relative;
+    top: 12%;
+  }
+}
+
+/**************SVG****************/
+
+path.one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+path.two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.cta:hover path.three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover path.one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover path.two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+
+@keyframes color_anim {
+  0% {
+    fill: white;
+  }
+
+  50% {
+    fill: #ffc100;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+/* Style Algolia highlights */
+mark.ais-Highlight-highlighted {
+  background-color: rgba(var(--secondary-color-rgb), 0.3);
+}

@@ -1,0 +1,58 @@
+.printer-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--background-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 4px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+.form-submit {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  transition: all 0.3s ease;
+}
+
+.form-submit:hover {
+  background-color: var(--hover-button-color);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.form-submit:active {
+  background-color: var(--active-button-color);
+}

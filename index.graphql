@@ -1,0 +1,317 @@
+type Printer {
+  id: ID
+  volumeCapacity: Float!
+  speed: Float!
+  brand: String!
+  model: String!
+  quantity: Float!
+}
+
+type GPSCoordinate {
+  latitude: Float!
+  longitude: Float!
+}
+
+type User {
+  id: ID!
+  username: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  email: String!
+  profileInfo: String!
+  socialMediaLinks: [String!]!
+  discoverReason: String
+  referrerUserName: ID
+  role: RoleEnum!
+  printers: [Printer!]
+  subNewsletter: Boolean!
+  portFolioURL: String
+  location: GPSCoordinate
+}
+
+enum RoleEnum {
+  Admin
+  User
+  Printer
+}
+
+type UserResult {
+  result: User
+  reasons: [String!]!
+}
+
+type Order {
+  id: ID
+  customerId: ID
+  type: OrderTypeEnum!
+  title: String!
+  category: ServiceCategoryEnum!
+  description: String!
+  material: MaterialEnum
+  appearance: AppearanceEnum
+  color: String
+  texture: TextureEnum
+  deadline: DateTime!
+  createdAt: DateTime!
+  deliveryMethod: DeliveryMethodEnum!
+  views: Float
+  estimatedPrice: Float
+  paymentType: PaymentTypeEnum
+  filePic: Upload
+  file3D: Upload
+  status: OrderStatusEnum!
+  phoneNumber: String
+  email: String!
+  fileId: ID
+  address: String
+  publishedAt: DateTime
+  unPublishedAt: DateTime
+  completedAt: DateTime
+}
+
+enum OrderTypeEnum {
+  Offer
+  Request
+}
+
+enum ServiceCategoryEnum {
+  Printer3D
+  Scanner
+  CNC
+  ModelingService
+}
+
+# A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+scalar DateTime
+
+enum DeliveryMethodEnum {
+  Postal
+  HandDelivery
+}
+
+enum PaymentTypeEnum {
+  Lydia
+  PayPal
+  SEPA
+  Cash
+}
+
+# The `Upload` scalar type represents a file upload.
+scalar Upload
+
+enum OrderStatusEnum {
+  Created
+  Printing
+  Shipped
+  Submitted
+}
+
+type Ability {
+  action: AbilityAction!
+  subject: String!
+  inverted: Boolean
+}
+
+enum AbilityAction {
+  READ
+  WRITE
+  CREATE
+  UPDATE
+  DELETE
+  FINISH
+  LIST
+  INVITE
+  SEND
+  VALIDATE
+  ARBITRATE
+  TEMP_MANAGE
+  SEARCH
+  PUBLISH
+  JOIN
+  CANCEL
+}
+
+type AbilityWithName {
+  name: String!
+  ability: Ability!
+}
+
+type AgreedLegalDocument {
+  legalDocumentId: String!
+  agreedVersion: Float!
+  choices: Float!
+  agreedAt: DateTime!
+}
+
+type Filament {
+  id: ID
+  filamentType: FilamentTypeEnum!
+  commonlyPrintedMaterials: String!
+  extrusionTemperature: Float!
+  bedTemperature: Float!
+  postPrintAppearance: String!
+  commonProperties: String!
+}
+
+enum FilamentTypeEnum {
+  Pla
+  Abs
+  Petg
+}
+
+type Team {
+  id: ID
+  teamName: String!
+  memberIds: [ID!]!
+}
+
+type Model3D {
+  id: ID!
+  creatorId: ID!
+  category: String!
+  description: String!
+  path: String!
+  license: String!
+  price: Float!
+  status: Model3DStatusEnum!
+  preSignedUrl: String
+}
+
+enum Model3DStatusEnum {
+  Active
+  Inactive
+  PendingValidation
+}
+
+type Reaction {
+  id: ID!
+  memberId: ID!
+  modelId: ID!
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  type: ReactionTypeEnum!
+}
+
+enum ReactionTypeEnum {
+  LIKE
+  DISLIKE
+  FAVORITE
+  CRUSH
+  FOLLOW
+}
+
+type Query {
+  getTeamById(id: String!): Team!
+  getUserById(id: String!): User!
+  getOrderById(id: String!): Order!
+  getPrinterById(id: String!): Printer!
+  getFilamentById(id: String!): Filament!
+  getModel3DById(id: String!): Model3D!
+  listModel3D: [Model3D!]!
+  getReactionById(id: String!): Reaction!
+}
+
+type Mutation {
+  createTeam(data: TeamInput!): Team!
+  updateTeam(id: ID!, data: TeamInput!): Team!
+  deleteTeam(id: String!): Boolean!
+  createUser(data: UserInput!): UserResult!
+  updateUser(id: ID!, data: UserInput!): User!
+  deleteUser(id: String!): Boolean!
+  go(data: OrderInput!): Order!
+  createOrder(data: OrderInput!): Order!
+  updateOrder(id: ID!, data: OrderInput!): Order!
+  deleteOrder(id: String!): Boolean!
+  createPrinter(data: PrinterInput!): Printer!
+  updatePrinter(id: ID!, data: PrinterInput!): Printer!
+  deletePrinter(id: String!): Boolean!
+  createFilament(data: FilamentInput!): Filament!
+  updateFilament(id: ID!, data: FilamentInput!): Filament!
+  deleteFilament(id: String!): Boolean!
+  createModel3D(data: Model3DInput!): Model3D!
+  updateModel3D(id: ID!, data: Model3DInput!): Model3D!
+  deleteModel3D(id: String!): Boolean!
+  createReaction(data: ReactionInput!): Reaction!
+  updateReaction(id: ID!, data: ReactionInput!): Reaction!
+  deleteReaction(id: String!): Boolean!
+}
+
+input TeamInput {
+  teamName: String!
+  memberIds: [ID!]!
+}
+
+input UserInput {
+  username: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  email: String!
+  profileInfo: String!
+  socialMediaLinks: [String!]!
+  discoverReason: String
+  referrerUserName: ID
+  role: RoleEnum!
+  printers: [PrinterInput!]
+  subNewsletter: Boolean!
+  portFolioURL: String
+  location: GPSCoordinateInput!
+}
+
+input PrinterInput {
+  volumeCapacity: Float!
+  speed: Float!
+  brand: String!
+  model: String!
+  quantity: Float!
+}
+
+input GPSCoordinateInput {
+  latitude: Float!
+  longitude: Float!
+}
+
+input OrderInput {
+  type: OrderTypeEnum!
+  title: String!
+  category: ServiceCategoryEnum!
+  description: String!
+  deadline: DateTime!
+  deliveryPref: DeliveryMethodEnum!
+  views: Float
+  estimatedPrice: Float
+  paymentType: PaymentTypeEnum!
+  filePic: Upload
+  file3D: Upload
+  status: OrderStatusEnum!
+}
+
+input FilamentInput {
+  filamentType: FilamentTypeEnum!
+  commonlyPrintedMaterials: String!
+  extrusionTemperature: Float!
+  bedTemperature: Float!
+  postPrintAppearance: String!
+  commonProperties: String!
+}
+
+input Model3DInput {
+  id: String
+  creatorId: ID!
+  category: String!
+  description: String!
+  path: String!
+  license: String!
+  price: Float!
+  status: Model3DStatusEnum!
+}
+
+input ReactionInput {
+  id: ID
+  memberId: ID!
+  modelId: ID!
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  type: ReactionTypeEnum!
+}

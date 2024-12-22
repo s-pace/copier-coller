@@ -1,0 +1,9 @@
+overwrite: true
+schema: http://localhost:3001/gql
+generates:
+  src/generated/types.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - add:
+         content: '/* eslint-disable no-unused-vars */'
