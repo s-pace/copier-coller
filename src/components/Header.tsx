@@ -78,7 +78,7 @@ function Header() {
                   <Link
                     role="button"
                     tabIndex={0}
-                    className="z-10 col-span-1 flex items-center justify-start text-center opacity-0 hover:scale-110"
+                    className="z-50 col-span-1 flex items-center justify-start text-center opacity-0 hover:scale-110"
                     href={"/go"}
                     aria-label="Go to print page"
                   >
@@ -103,7 +103,7 @@ function Header() {
                   <Link
                     role="button"
                     tabIndex={0}
-                    className="fixed right-[1rem] top-[1rem] col-span-1 flex items-center justify-start text-center"
+                    className="z-50 fixed right-[1rem] top-[1rem] col-span-1 flex items-center justify-start text-center"
                     href={"/go"}
                     aria-label="Go to print page"
                   >
