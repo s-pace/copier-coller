@@ -81,14 +81,12 @@ function App({ Component, pageProps }: AppProps) {
                 <SEO
                   title="PrintJam - L’impression 3D pour tous!"
                   keywords={[
-                    "3D printing",
-                    "PrintJam",
-                    "creativity",
-                    "DIY projects",
-                    "3D printers",
-                    "3D designs",
+                    "Couper-Coller",
+                    "couper",
+                    "Coller",
+                    "Art",
                   ].join(", ")}
-                  description="PrintJam: Unleash your creativity with 3D printing. Join a community of curious minds, expert 3D printers, and creative designers. From DIY projects to custom designs, explore endless possibilities."
+                  description="Couper-Coller, the best art out there."
                 />
                 <SetAuth>
                   <div className="flex flex-col">
