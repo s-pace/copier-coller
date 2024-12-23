@@ -25,10 +25,7 @@ const CTAButton: React.FC<CTAButtonProps> = ({ href, children, className }) => {
 
 function App() {
   const { locale } = useLanguage();
-  const {
-    indexTitle,
-    seeGalleryLabel,
-  } = locale;
+  const { indexTitle, seeGalleryLabel } = locale;
 
   return (
     <Page mainClassName="" title={indexTitle}>

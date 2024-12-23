@@ -24,28 +24,30 @@
 }
 
 :root {
-  --primary-color: #ff7d00;
-  --primary-color-rgb: 255, 125, 0;
-  /* Primary orange color */
-  --secondary-color: #ff9933;
-  --secondary-color-rgb: 255, 153, 51;  /* RGB */
-  /* Secondary orange for buttons, etc. */
-  --text-color: #333;
-  /* Text color unchanged */
-  --text-color-fade: #33333;
-  /* Text color unchanged */
-  --border-color: #ccc;
-  /* Border color unchanged */
-  --background-color: #f9f9f9;
+  --primary-color: #ff7d00; /* Orange */
+  --background-color: #7d00ff; /* Light background */
+  --primary-color-rgb: 255, 153, 51; /* RGB for the primary color */
+  --secondary-color: #0055ff; /* Blue for contrast */
+  --secondary-color-rgb: 0, 85, 255; /* RGB for the secondary color */
+  --text-color: #333333; /* Dark text for readability */
+  --text-color-fade: rgba(51, 51, 51, 0.7); /* Faded text for softer appearance */
+  --border-color: #e0e0e0; /* Light grey borders */
   --bg: 119 136 153;
-  /* Background color unchanged */
+  --hover-button-color: #ff5a00; /* Slightly darker orange for hover effect */
+  --hover-active-color: #0044cc; /* Dark blue for active hover effect */
+  --active-button-color:  var(--secondary-color);
+  --disable-bg-color: #cccccc; /* Greyed out background for disabled elements */
+  --app-background-color: var(--background-color); /* Light grey for the app background */
+  --app-link-color: #1a73e8; /* Blue for links */
+    /* Background color unchanged */
   --hover-button-color: #ffb366;
   /* Lighter orange for hover */
   --hover-active-color: #ff944d;
   --active-button-color: #ffff00;
   --disable-bg-color: #cccccc;
-  --app-background-color: #ff7d00;
+  --app-background-color: var(--background-color);
   --app-link-color: #ff944d;
+
   /* Geekier Font Variables */
   --font-heading: "Audiowide", sans-serif;
   /* A retro, pixelated font inspired by 8-bit video games */
@@ -1532,7 +1534,7 @@ input.big-input[type="file"]::file-selector-button {
   font-family: "Poppins", sans-serif;
   font-size: 40px;
   color: white;
-  background: #7d21ff;
+  background: var(--background-color);
   transition: 1s;
   box-shadow: 6px 6px 0 black;
   transform: skewX(-15deg);

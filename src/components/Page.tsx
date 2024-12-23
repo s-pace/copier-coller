@@ -26,7 +26,7 @@ function Page({
       <div className="mx-auto flex flex-col gap-2 p-2">
         {<Header />}
         <div className="flex flex-col items-center gap-2 md:flex-row md:items-start">
-          {<Nav className="w-full" />}
+          {<Nav className="w-full h-full" />}
           <main className={clsx("m-0", mainClassName)}>
             <Card className="mx-auto">{children} </Card>
           </main>

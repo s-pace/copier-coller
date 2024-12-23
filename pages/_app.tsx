@@ -80,12 +80,9 @@ function App({ Component, pageProps }: AppProps) {
               <LanguageProvider>
                 <SEO
                   title="PrintJam - L’impression 3D pour tous!"
-                  keywords={[
-                    "Couper-Coller",
-                    "couper",
-                    "Coller",
-                    "Art",
-                  ].join(", ")}
+                  keywords={["Couper-Coller", "couper", "Coller", "Art"].join(
+                    ", ",
+                  )}
                   description="Couper-Coller, the best art out there."
                 />
                 <SetAuth>

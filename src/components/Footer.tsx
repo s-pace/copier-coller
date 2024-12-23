@@ -41,7 +41,7 @@ function Footer() {
                 />
               </a>
               <a
-                href="https://www.instagram.com/print.jamer"
+                href="https://www.instagram.com/couper.col_ler"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link transition-transform duration-300 hover:scale-[200%]"
@@ -63,7 +63,8 @@ function Footer() {
 
           <div className="mt-4 flex w-full items-center justify-center md:mt-0 md:w-5/6">
             <span className="copyright-text text-center text-xs md:text-left">
-              Copyright &copy; 2024 All Rights Reserved by Print-jam. Made in
+              Copyright &copy; 2024 All Rights Reserved by Coupier-Coller. Made
+              in
               <GlowingIcon>🇫🇷</GlowingIcon>
               with
               <GlowingIcon />
