@@ -13,9 +13,9 @@ import { useCurrentUser } from "../../src/contexts/UserContext";
 import { useLanguage } from "../i18n/LanguageProvider";
 import { isNil } from "lodash";
 import {
-  Box,
+  Images,
   CircleUserRound,
-  FileBox,
+  BookImage,
   Fingerprint,
   Mail,
   MailOpen,
@@ -72,10 +72,10 @@ const Nav = ({ className }: { className?: string }) => {
     {
       href: "/models",
       permanentIcon: (className: string) => (
-        <Box className={`${className} ${iconClassName}`} />
+        <BookImage className={`${className} ${iconClassName}`} />
       ),
       hoverIcon: (className: string) => (
-        <FileBox className={`${className} ${iconClassName}`} />
+        <Images className={`${className} ${iconClassName}`} />
       ),
       labelText: navAllModels,
     },
