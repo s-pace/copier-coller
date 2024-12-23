@@ -17,6 +17,14 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        rajdhani: ['Rajdhani', 'sans-serif'],
+        'blippo': ['Blippo', 'sans-serif'],
+      },
+      fontWeight: {
+        'custom-bold': 700,
+        'custom-normal': 400,
+      },
       colors: {
         border: "hsl(var(--border))",
         shy: "var(--shy)",

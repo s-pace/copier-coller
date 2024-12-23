@@ -54,7 +54,7 @@ function Header() {
             <div className="flex h-full w-full items-center justify-center">
               <div className="flex flex-col">
                 <div className="text-center">
-                  <h3 className="project-name text-2xl font-bold leading-tight md:text-[3rem]">
+                  <h3 className="project-name text-2xl font-bold leading-tight md:text-[3rem] font-blippo">
                     Couper-Coller
                   </h3>
                 </div>
