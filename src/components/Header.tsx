@@ -86,7 +86,7 @@ function Header() {
                       <div>
                         <h4 className="project-name shadow-none">
                           <Image
-                            className="w-40 max-w-[30vw]"
+                            className="w-40"
                             src="/bang.png"
                             width={24}
                             height={24}
@@ -113,7 +113,7 @@ function Header() {
                     >
                       <div>
                         <Image
-                          className="w-40"
+                          className="max-w-[30vw]"
                           src="/bang.png"
                           width={24}
                           height={24}
