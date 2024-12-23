@@ -30,7 +30,6 @@ interface ModelItemProps {
   toggleShare?: () => void;
 }
 
-
 const getImageUrl = (
   thumbnailUrl?: string,
   fileUrl?: string,
